@@ -1,0 +1,40 @@
+<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Digipuuk SuperManager" Height="600" Width="400">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Button.Padding" Value="5" />
+            <Setter Property="Button.Margin" Value="5" />
+            <Setter Property="Button.MinWidth" Value="65" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <!-- SEARCH PANEL at the top  -->
+        <DockPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+            <TextBlock DockPanel.Dock="Left" Text="E-Mail:" VerticalAlignment="Center" Padding="5" />
+            <Button Name="buttonSearch" DockPanel.Dock="Right" Content="Search" />
+            <TextBox Name="textboxEmail" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Padding="5" Margin="5" />
+        </DockPanel>
+        
+        <!-- OPERATIONS at the bottom -->
+        <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+            <UniformGrid Rows="1">
+                <Button Name="buttonDelete" Content="Delete" />
+                <Button Name="buttonChangePassword" Content="Change password" />
+            </UniformGrid>
+        </DockPanel>
+        
+        <!-- USER LIST -->
+        <ListView Name="listviewUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Username" DisplayMemberBinding="{Binding Path=UserName}"  />
+                    <GridViewColumn Header="E-Mail" DisplayMemberBinding="{Binding Path=EMail}" />
+                    <GridViewColumn Header="Last login" DisplayMemberBinding="{Binding Path=LastLogin}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
+
